@@ -2,6 +2,7 @@ package org.engine.production.entity;
 
 import lombok.*;
 import org.engine.utils.LocalDateTimeConverter;
+import org.engine.utils.Role;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -50,7 +51,8 @@ public class Users implements Serializable {
     private String ownerType;
 
     @Column(length = 25)
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Column(name = "first_name", length = 255)
     private String firstName;
@@ -107,15 +109,4 @@ public class Users implements Serializable {
     @Column(name = "expired_at")
     @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime expiredAt;
-
-    public void update(Users newUser) {
-        this.login = newUser.getLogin();
-        this.email = newUser.getEmail();
-        this.firstName = newUser.getFirstName();
-        this.lastName = newUser.getLastName();
-        this.role = newUser.getRole();
-        this.enabled = newUser.getEnabled();
-        this.updatedAt = LocalDateTime.now();
-        this.ownerId = newUser.getOwnerId();
-    }
 }

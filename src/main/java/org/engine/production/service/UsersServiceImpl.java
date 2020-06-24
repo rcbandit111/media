@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -81,8 +82,25 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public void save(Users entity) {
+    public Users update(Users entity) {
 
+        Users users = new Users();
+        users.setId(entity.getId());
+        users.setLogin(entity.getLogin());
+        users.setEmail(entity.getEmail());
+        users.setFirstName(entity.getFirstName());
+        users.setLastName(entity.getLastName());
+        users.setRole(entity.getRole());
+        users.setEnabled(entity.getEnabled());
+        users.setUpdatedAt(LocalDateTime.now());
+        users.setOwnerId(entity.getOwnerId());
+
+        return dao.save(entity);
+    }
+
+    @Override
+    public void save(Users entity) {
+        dao.save(entity);
     }
 
     @Override

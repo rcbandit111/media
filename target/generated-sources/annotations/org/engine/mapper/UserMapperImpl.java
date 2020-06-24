@@ -10,11 +10,12 @@ import org.engine.rest.dto.UserFilter;
 import org.engine.rest.dto.UserFilterDTO;
 import org.engine.rest.dto.UserNewDTO;
 import org.engine.rest.dto.UserNewDTO.UserNewDTOBuilder;
+import org.engine.utils.Role;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-05-31T01:44:46+0300",
+    date = "2020-06-24T19:05:04+0300",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 14 (Oracle Corporation)"
 )
 @Component
@@ -33,7 +34,9 @@ public class UserMapperImpl implements UserMapper {
         userDTO.firstName( user.getFirstName() );
         userDTO.lastName( user.getLastName() );
         userDTO.email( user.getEmail() );
-        userDTO.role( user.getRole() );
+        if ( user.getRole() != null ) {
+            userDTO.role( user.getRole().name() );
+        }
         userDTO.enabled( user.getEnabled() );
         if ( user.getCreatedAt() != null ) {
             userDTO.createdAt( DateTimeFormatter.ISO_LOCAL_DATE_TIME.format( user.getCreatedAt() ) );
@@ -55,7 +58,9 @@ public class UserMapperImpl implements UserMapper {
         userNewDTO.firstName( user.getFirstName() );
         userNewDTO.lastName( user.getLastName() );
         userNewDTO.email( user.getEmail() );
-        userNewDTO.role( user.getRole() );
+        if ( user.getRole() != null ) {
+            userNewDTO.role( user.getRole().name() );
+        }
         userNewDTO.enabled( user.getEnabled() );
         userNewDTO.ownerId( user.getOwnerId() );
         userNewDTO.ownerType( user.getOwnerType() );
@@ -80,7 +85,9 @@ public class UserMapperImpl implements UserMapper {
         users.enabled( userDTO.getEnabled() );
         users.ownerId( userDTO.getOwnerId() );
         users.ownerType( userDTO.getOwnerType() );
-        users.role( userDTO.getRole() );
+        if ( userDTO.getRole() != null ) {
+            users.role( Enum.valueOf( Role.class, userDTO.getRole() ) );
+        }
         users.firstName( userDTO.getFirstName() );
         users.lastName( userDTO.getLastName() );
         users.createdAt( userDTO.getCreatedAt() );

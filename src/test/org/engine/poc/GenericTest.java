@@ -7,5 +7,7 @@ public class GenericTest {
 	@Test
 	public void startTest() {
 
+		System.out.println("!!!!!");
+
 	}
 }
