@@ -19,7 +19,6 @@ org\engine\exception\BaseException.class
 org\engine\utils\ResponseHandler.class
 org\engine\exception\ExtraValueDto.class
 org\engine\utils\Role.class
-org\engine\security\JwtUser.class
 org\engine\production\entity\Sessions$SessionsBuilder.class
 org\engine\rest\dto\UserDTO$UserDTOBuilder.class
 org\engine\rest\dto\UserFilterDTO.class
@@ -32,8 +31,10 @@ org\engine\exception\EngineException.class
 org\engine\exception\ErrorInfo.class
 org\engine\production\entity\Sessions.class
 org\engine\production\service\OldPasswordsServiceImpl.class
+org\engine\security\jwt\JwtTokenProvider.class
 org\engine\config\BaseMapperConfig.class
 org\engine\exception\ExtraValueDto$TypeEnum.class
+org\engine\security\SecurityConfig.class
 org\engine\dto\ActivatePasswordTokenDTO.class
 org\engine\dto\ActivatePasswordDTO.class
 org\engine\production\service\DataPagesServiceImpl.class
@@ -49,11 +50,12 @@ org\engine\production\entity\OldPasswords$OldPasswordsBuilder.class
 org\engine\utils\GenericUtils.class
 org\engine\mapper\UserMapperImpl.class
 org\engine\dto\ResetPasswordDTO.class
+org\engine\security\OrganizationSubClaimAdapter.class
 org\engine\security\WebSecurityConfig.class
 org\engine\mapper\UserMapper.class
 org\engine\exception\ErrorSource.class
 org\engine\dto\ActivatePasswordDTO$ActivatePasswordDTOBuilder.class
-org\engine\security\JwtTokenUtil.class
+org\engine\security\jwt\JwtUser.class
 org\engine\dto\AuthenticationDTO.class
 org\engine\production\service\OldPasswordsRepository.class
 org\engine\production\service\UsersServiceImpl.class
@@ -66,7 +68,7 @@ org\engine\reporting\ReportRequest.class
 org\engine\reporting\ReportResponse.class
 org\engine\dto\ActivatePasswordTokenDTO$ActivatePasswordTokenDTOBuilder.class
 org\engine\dto\AuthenticationDTO$AuthenticationDTOBuilder.class
-org\engine\security\JwtTokenProvider.class
+org\engine\security\jwt\JwtTokenUtil.class
 org\engine\production\service\DataPagesService.class
 org\engine\context\ContextProductionDatasource.class
 org\engine\dto\NewPasswordTokenDTO$NewPasswordTokenDTOBuilder.class
